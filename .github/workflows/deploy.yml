@@ -21,5 +21,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd ~/devops-Demo
+            cd ~/devops-demo
             git pull origin main
+            sudo cp -r ~/devops-demo/* /var/www/html/
+            sudo systemctl restart nginx
